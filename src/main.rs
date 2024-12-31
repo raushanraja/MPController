@@ -135,3 +135,22 @@ pub async fn pause_player(req: HttpRequest) -> impl Responder {
     player(identity.to_string());
     HttpResponse::Ok().body(format!("Pausing player: {}", identity))
 }
+
+#[cfg(test)]
+mod test {
+
+    use crate::listplayers;
+    use crate::player;
+
+    #[test]
+    fn test_listplayers() {
+        let metadatas = listplayers();
+        assert!(metadatas.len() > 0);
+    }
+
+    #[test]
+    fn test_pause_player() {
+        let identity = "Mozilla firefox".to_string();
+        player(identity.to_string());
+    }
+}
