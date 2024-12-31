@@ -1,0 +1,10 @@
+@hostname=localhost
+@port=8999
+
+
+GET http://{{hostname}}:{{port}}/listplayers
+
+###
+
+GET http://{{hostname}}:{{port}}/pause/Mozilla%20firefox
+Content-Type: application/text
